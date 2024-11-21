@@ -12,14 +12,14 @@ namespace DemoConcurrencia
 
         private void btnSecuencial_Click(object sender, EventArgs e)
         {
-            ActualizarResultado("Iniciando proceso secuencial...");
+            ActualizarResultado("Iniciando proceso secuencial...!");
             for (int i = 0; i < 5; i++)
             {//Sleep: Detiene el procesamiento
                 Thread.Sleep(2000); //Carga la segunda linea después de cada 2 segundos
                 ActualizarResultado($"Actividad - paso {i + 1}");
             }
 
-            ActualizarResultado("Fin del proceso secuencial.");
+            ActualizarResultado("Fin del proceso secuencial!");
         }
 
         private void ActualizarResultado(string mensaje)
@@ -50,7 +50,7 @@ namespace DemoConcurrencia
                 {
 
 
-                    ActualizarResultado("Hilo Cancelado");
+                    ActualizarResultado(" Actualizar Hilo Cancelado");
                 }
             });
             hilo1.Start();
@@ -62,12 +62,12 @@ namespace DemoConcurrencia
             var token = _Cts.Token;
             try
             {
-                ActualizarResultado("Iniciando Task...");
+                ActualizarResultado("Iniciando Resultado...");
                 Task.Run(() =>
                 {
                     Thread.Sleep(5000);
                 });
-                ActualizarResultado("Task completada");
+                ActualizarResultado("Resultado completada");
             }
             catch (Exception)
             {
